@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "barebrief"
+version = "0.1.0"
+description = "MCP: bilingual (EN+ZH) sourced research briefs over Chinese official sources (gov.cn/miit/stats/cnipa/ccgp/cebpubservice) with verbatim excerpts and citations. Brand: Brief (简报)."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [{ name = "Brief (barebrief)" }]
+dependencies = [
+    "fastmcp>=1.0",
+    "requests>=2.31",
+    "pydantic>=2.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8"]
+
+[project.scripts]
+mcp-bilingual-research-brief = "main:main"
+
+[tool.setuptools]
+py-modules = ["main"]
+packages = ["src", "src.tools", "src.sources"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
